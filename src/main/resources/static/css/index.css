@@ -1,0 +1,20 @@
+#mainContainer {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.chatContainer {
+  width: 100%;
+}
+
+.senderChat {
+  background-color: yellow;
+  text-align: right;
+}
+
+.receiverChat {
+  background-color: white;
+}
+
+/*# sourceMappingURL=index.css.map */

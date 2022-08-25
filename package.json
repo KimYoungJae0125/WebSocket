@@ -1,0 +1,21 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass src/main/resources/static/scss/:src/main/resources/static/css",
+    "sass:watch": "sass --watch src/main/resources/scss/:src/main/resources/static/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KimYoungJae0125/WebSocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KimYoungJae0125/WebSocket/issues"
+  },
+  "homepage": "https://github.com/KimYoungJae0125/WebSocket#readme"
+}

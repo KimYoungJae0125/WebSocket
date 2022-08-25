@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link href="/css/index.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>테스트</h1>
-    <span id="receiver" th:text="${id}"></span>
-    <input type="text" id="msg" />
-    <button onclick="send()">버튼</button>
-    <div id="testContainer"></div>
+    <div id="mainContainer">
+        <h1>테스트</h1>
+        <span id="receiver" th:text="${id}"></span>
+        <input type="text" id="msg" />
+        <button onclick="send()">버튼</button>
+        <div id="testContainer" class="chatContainer"></div>
+    </div>
 </body>
 <script src="/js/websocket.js"></script>
 </html>
