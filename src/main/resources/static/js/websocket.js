@@ -15,14 +15,17 @@ websocket.onerror = (error) => {
 }
 
 websocket.onmessage = (msg) => {
-console.log("hihi");
-//    const data = JSON.parse(msg.data);
 //    const {senderId, message, time, newOne, outOne} = data;
     const cont = document.getElementById("testContainer");
-    const newMsg = document.createElement("div");
-    console.log(msg);
-    newMsg.innerHTML = msg.data;
-    cont.append(newMsg);
+    const createMessage = ({receiverId, sender, message}) => {
+        const newMsg = document.createElement("div");
+        newMsg.style.width = "200px";
+        newMsg.style.textAlign = sender == "나" ? "right" : "left";
+        newMsg.innerHTML = receiverId + "(" + sender + ") : " + message;
+        return newMsg;
+    }
+
+    cont.append(createMessage(JSON.parse(msg.data)));
 }
 
 const send = () => {
@@ -43,5 +46,4 @@ const send = () => {
         document.getElementById("msg").value = "";
 
     }
-
 }

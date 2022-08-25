@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
     <h1>테스트</h1>
-    <span id="receiver">테스터</span>
+    <span id="receiver" th:text="${id}"></span>
     <input type="text" id="msg" />
     <button onclick="send()">버튼</button>
     <div id="testContainer"></div>

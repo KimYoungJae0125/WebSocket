@@ -39,13 +39,17 @@ public class ChatHandler extends Socket {
         for (int i=0; i<session.size(); i++) {
             if(!recieveSession.getId().equals(session.get(i).getId())) {
                 try {
-                    session.get(i).getBasicRemote().sendText("상대(" + message.getReceiverId() + ") : " + message.getMessage());
+                    message.setSender("상대");
+//                    session.get(i).getBasicRemote().sendText("상대(" + message.getReceiverId() + ") : " + message.getMessage());
+                    session.get(i).getBasicRemote().sendText(new ObjectMapper().writeValueAsString(message));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             } else {
                 try {
-                    session.get(i).getBasicRemote().sendText("나(" + message.getReceiverId() + ") : " + message.getMessage());
+                    message.setSender("나");
+//                    session.get(i).getBasicRemote().sendText("나(" + message.getReceiverId() + ") : " + message.getMessage());
+                    session.get(i).getBasicRemote().sendText(new ObjectMapper().writeValueAsString(message));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
