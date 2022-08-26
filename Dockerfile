@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk11
 
 #컨테이너 안에서 사용할 변수 세팅
-ARG JAR_FILE=./build/libs/*.jar
+ARG JAR_FILE=build/libs/*-SNAPSHOT.jar
 
 #위에서 세팅한 변수의 내용을 컨테이너의 app.jar로 복사한다.
 COPY ${JAR_FILE} app.jar
