@@ -1,6 +1,6 @@
 console.log("hihi");
 
-const websocket = new WebSocket("ws://localhost:8080/websocket");
+const websocket = new WebSocket("ws://"+document.getElementById("portInfo").value+"/websocket");
 
 websocket.onopen = (evt) => {
     console.log("open event :", evt);
@@ -16,11 +16,12 @@ websocket.onerror = (error) => {
 
 websocket.onmessage = (msg) => {
 //    const {senderId, message, time, newOne, outOne} = data;
+    console.log("byebye")
+    console.log("${portInfo}")
     const cont = document.getElementById("testContainer");
     const createMessage = ({receiverId, sender, message}) => {
         const newMsg = document.createElement("div");
-        newMsg.style.width = "200px";
-        newMsg.style.textAlign = sender == "나" ? "right" : "left";
+        newMsg.classList.add(sender == "나" ? "senderChat" : "receiverChat");
         newMsg.innerHTML = receiverId + "(" + sender + ") : " + message;
         return newMsg;
     }

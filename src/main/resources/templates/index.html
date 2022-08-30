@@ -13,6 +13,7 @@
         <button id="sendButton" onclick="send()">버튼</button>
         <div id="testContainer" class="chatContainer"></div>
     </div>
+    <input type="hidden" th:value="${portInfo}" id="portInfo"/>
 </body>
 <script src="/js/websocket.js"></script>
 </html>
