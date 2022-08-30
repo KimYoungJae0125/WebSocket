@@ -9,8 +9,8 @@
     <div id="mainContainer">
         <h1>테스트</h1>
         <span id="receiver" th:text="${id}"></span>
-        <input type="text" id="msg" />
-        <button id="sendButton" onclick="send()">버튼</button>
+        <input type="text" id="msg" data-cy="messageInput" />
+        <button id="sendButton" data-cy="sendButton" onclick="send()">버튼</button>
         <div id="testContainer" class="chatContainer"></div>
     </div>
     <input type="hidden" th:value="${portInfo}" id="portInfo"/>
