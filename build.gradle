@@ -24,3 +24,23 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+//build 시 -Pprofile=${profile} 명령어가 있고 ${profile}에 값이 있으면 ${profile}의 값을 변수 profile에 담고 없으면 Local을 기본 변수로 담는다.
+ext.profile = (!project.hasProperty('profile') || !profile) ? 'local' : profile
+
+sourceSets {
+	main {
+		resources {
+			//src/main/resources + src/main/resources-${profile}의 파일들을 가져와서 jar 파일로 묶는다.
+			srcDirs "src/main/resources", "src/main/resources-${profile}"
+		}
+	}
+}
+tasks {
+	processResources {
+		duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.INCLUDE
+	}
+}
+
+bootRun {
+
+}

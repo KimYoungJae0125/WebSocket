@@ -1,0 +1,10 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  thymeleaf:
+    prefix: classpath:templates
+
+
+websocket:
+  portInfo: "127.0.0.1:8080"
