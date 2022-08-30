@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
+import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
@@ -18,7 +19,7 @@ import java.util.List;
 @Component
 @ServerEndpoint(value = "/websocket")
 public class ChatHandler extends Socket {
-    private static final List<Session> session = new ArrayList<Session>();
+    private static final List<Session> session = new ArrayList<>();
 
     @OnOpen
     public void open(Session newUser) {
@@ -55,6 +56,11 @@ public class ChatHandler extends Socket {
                 }
             }
         }
+    }
+
+    @OnClose
+    public void onClose(Session session) {
+        this.session.remove(session);
     }
 
 }
