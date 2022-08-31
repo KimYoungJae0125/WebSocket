@@ -18,6 +18,12 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
+	/**
+	 * objectMapper에서 LocalDateTime JSON화를 위해
+	 */
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+
 }
 
 tasks.named('test') {
