@@ -2,19 +2,42 @@
   width: 500px;
   margin: 0 auto;
   border: 1px solid #ccc;
+  max-height: 1000px;
+  overflow: auto;
 }
 
 .chatContainer {
   width: 100%;
 }
 
-.senderChat {
-  background-color: yellow;
+.messageContainer {
+  display: flex;
+  margin-bottom: 30px;
+}
+.messageContainer.left {
+  flex-direction: row;
+}
+.messageContainer.left > div > span:nth-of-type(1) {
+  background-color: white;
+}
+.messageContainer.right {
+  flex-direction: row-reverse;
+}
+.messageContainer.right > div {
   text-align: right;
 }
-
-.receiverChat {
-  background-color: white;
+.messageContainer.right > div > span:nth-of-type(1) {
+  background-color: yellow;
+}
+.messageContainer > div > span:nth-of-type(1) {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.messageContainer > span:nth-of-type(1) {
+  color: gray;
+  font-size: 10px;
+  align-self: flex-end;
 }
 
 /*# sourceMappingURL=index.css.map */

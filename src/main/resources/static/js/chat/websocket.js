@@ -16,13 +16,24 @@ websocket.onerror = (error) => {
 
 websocket.onmessage = (msg) => {
 //    const {senderId, message, time, newOne, outOne} = data;
-    console.log("byebye")
-    console.log("${portInfo}")
     const cont = document.getElementById("testContainer");
-    const createMessage = ({receiverId, sender, message}) => {
+    const createMessage = ({receiverId, sender, message, time}) => {
         const newMsg = document.createElement("div");
-        newMsg.classList.add(sender == "나" ? "senderChat" : "receiverChat");
-        newMsg.innerHTML = receiverId + "(" + sender + ") : " + message;
+        newMsg.classList.add("messageContainer");
+        newMsg.classList.add(sender == "나" ? "right" : "left");
+        const messageHtmlArr = [];
+        messageHtmlArr.push("<div>");
+        const senderNames = cont.getElementsByTagName('p');
+        if(senderNames.length > 0) {
+            if(senderNames[senderNames.length-1].innerText != receiverId + "(" + sender + ")")
+            messageHtmlArr.push("<p>" + receiverId + "(" + sender + ")</p>");
+        } else {
+            messageHtmlArr.push("<p>" + receiverId + "(" + sender + ")</p>");
+        }
+        messageHtmlArr.push("<span>" + message + "</span>")
+        messageHtmlArr.push("</div>")
+        messageHtmlArr.push("<span>"+formattingDate(time)+"</span>");
+        newMsg.innerHTML = messageHtmlArr.join("");
         return newMsg;
     }
 
@@ -32,11 +43,13 @@ websocket.onmessage = (msg) => {
 const send = () => {
     const message = document.getElementById("msg").value;
     const receiverId = document.getElementById("receiver").innerHTML;
+    const time = new Date();
 
     if(message != "") {
         const msg = {
               receiverId
             , message
+            , time
         };
         console.log(msg);
 
