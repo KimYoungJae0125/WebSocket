@@ -6,15 +6,15 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import java.time.LocalDateTime;
 
 public class Message {
-    private String receiverId;
+    private String senderId;
     private String message;
 
     private String sender;
 
     private LocalDateTime time;
 
-    public String getReceiverId() {
-        return this.receiverId;
+    public String getSenderId() {
+        return this.senderId;
     }
     public String getMessage() {
         return this.message;
@@ -27,8 +27,8 @@ public class Message {
     public LocalDateTime getTime() {
         return this.time;
     }
-    public void setReceiverId(String receiverId) {
-        this.receiverId = receiverId;
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
     }
     public void setMessage(String message) {
         this.message = message;

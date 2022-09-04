@@ -1,10 +1,16 @@
-console.log("hihi");
-
 const websocket = new WebSocket("ws://"+document.getElementById("portInfo").value+"/websocket");
 
+const userInfo = async () => {
+    const responseData = await https.get("/users");
+    document.getElementById("sender").innerText = responseData.id;
+}
+
+userInfo();
 websocket.onopen = (evt) => {
     console.log("open event :", evt);
 }
+
+
 
 websocket.onclose = (evt) => {
     console.log("close event :", evt);
@@ -42,12 +48,12 @@ websocket.onmessage = (msg) => {
 
 const send = () => {
     const message = document.getElementById("msg").value;
-    const receiverId = document.getElementById("receiver").innerHTML;
+    const senderId = document.getElementById("sender").innerHTML;
     const time = new Date();
 
     if(message != "") {
         const msg = {
-              receiverId
+              senderId
             , message
             , time
         };
